@@ -2,13 +2,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef void(*func_t)(void);
+// typedef void(func_t)(void);  // function type
+typedef void(*func_t)(void);    // function pointer type
 
 // gcc support nest function
 func_t test(void)
 {
+    const char *literal_str = "abc";
     void f(void) {
-        printf("called %s\n", __func__);
+        // literal_str must defined before f
+        printf("called %s, l_str %s(%p)\n", __func__, literal_str, &literal_str);
     }
 
     return f;
