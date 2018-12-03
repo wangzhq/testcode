@@ -4,11 +4,11 @@
 
 typedef void(*func_t)(void);
 
-
+// gcc support nest function
 func_t test(void)
 {
     void f(void) {
-        printf("called %s\n", __FUNCTION__);
+        printf("called %s\n", __func__);
     }
 
     return f;
